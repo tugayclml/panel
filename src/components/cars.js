@@ -20,7 +20,7 @@ export default function Car() {
 
   const getCars = () => {
     axios.get(
-      'http://localhost:5000/api/car'
+      process.env.REACT_APP_API_URL + '/api/car'
     ).then(response => {
       if (response.status === 200) {
         setCars([])

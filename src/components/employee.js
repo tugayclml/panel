@@ -20,7 +20,7 @@ export default function Employee() {
 
   const getEmployees = () => {
     axios.get(
-      'http://localhost:5000/api/employee'
+      process.env.REACT_APP_API_URL + '/api/employee'
     ).then(response => {
       if (response.status === 200) setEmployees(response.data)
     }).catch(error => {

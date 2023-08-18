@@ -17,7 +17,7 @@ export default function EditColor() {
 
     const getColor = () => {
         axios.get(
-            `http://localhost:5000/api/color/${location.state.colorId}`,
+            process.env.REACT_APP_API_URL + `/api/color/${location.state.colorId}`,
         ).then(response => {
             if (response.status === 200) {
                 setName(response.data.name)
@@ -30,7 +30,7 @@ export default function EditColor() {
 
     const editColor = () => {
         axios.patch(
-            `http://localhost:5000/api/color/${location.state.colorId}`,
+            process.env.REACT_APP_API_URL + `/api/color/${location.state.colorId}`,
             {
                 name,
                 colorCode,

@@ -7,7 +7,7 @@ export default function DeleteModal(props) {
     switch (props.type) {
       case 'price': {
         axios.delete(
-          `http://localhost:5000/api/price/${props.id}`
+          process.env.REACT_APP_API_URL + `/api/price/${props.id}`
         ).then(response => {
           if (response.status === 200) {
             props.onHide()
@@ -20,7 +20,7 @@ export default function DeleteModal(props) {
 
       case 'car': {
         axios.delete(
-          `http://localhost:5000/api/car/${props.id}`
+          process.env.REACT_APP_API_URL + `/api/car/${props.id}`
         ).then(response => {
           if (response.status === 200) {
             props.onHide()
@@ -33,7 +33,7 @@ export default function DeleteModal(props) {
 
       case 'section': {
         axios.delete(
-          `http://localhost:5000/api/section/${props.id}`,
+          process.env.REACT_APP_API_URL + `/api/section/${props.id}`,
         ).then(response => {
           if (response.status === 200) {
             props.onHide()
@@ -46,7 +46,7 @@ export default function DeleteModal(props) {
 
       case 'reservation': {
         axios.delete(
-          `http://localhost:5000/api/reservation/${props.id}`,
+          process.env.REACT_APP_API_URL + `/api/reservation/${props.id}`,
         ).then(response => {
           if (response.status === 200) {
             props.onHide()
@@ -59,7 +59,7 @@ export default function DeleteModal(props) {
 
       case 'agent': {
         axios.delete(
-          `http://localhost:5000/api/agent/${props.id}`,
+          process.env.REACT_APP_API_URL + `/api/agent/${props.id}`,
         ).then(response => {
           if (response.status === 200) {
             props.onHide()
@@ -72,7 +72,7 @@ export default function DeleteModal(props) {
 
       case 'employee': {
         axios.delete(
-          `http://localhost:5000/api/employee/${props.id}`,
+          process.env.REACT_APP_API_URL + `/api/employee/${props.id}`,
         ).then(response => {
           if (response.status === 200) {
             props.onHide()
@@ -86,7 +86,7 @@ export default function DeleteModal(props) {
       case 'carDriver': {
         const employeeIds = props.driverIds.map(driver => { return driver.id })
         axios.patch(
-          `http://localhost:5000/api/car/${props.id}`,
+          process.env.REACT_APP_API_URL + `/api/car/${props.id}`,
           {
             employeeIds: employeeIds
           }
@@ -102,7 +102,7 @@ export default function DeleteModal(props) {
 
       case 'color': {
         axios.delete(
-          `http://localhost:5000/api/color/${props.id}`,
+          process.env.REACT_APP_API_URL + `/api/color/${props.id}`,
         ).then(response => {
           if (response.status === 200) {
             props.onHide()

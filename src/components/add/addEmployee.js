@@ -14,7 +14,7 @@ export default function AddEmployee() {
 
     const createEmployee = () => {
         axios.post(
-            'http://localhost:5000/api/employee',
+            process.env.REACT_APP_API_URL + '/api/employee',
             {
                 firstName,
                 lastName,

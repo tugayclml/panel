@@ -16,7 +16,7 @@ export default function EditEmployee() {
 
     const getEmployee = useCallback(() => {
         axios.get(
-            `http://localhost:5000/api/employee/${location.state.employeeId}`
+            process.env.REACT_APP_API_URL + `/api/employee/${location.state.employeeId}`
         ).then(response => {
             if (response.status === 200) {
                 setFirstName(response.data.firstName)
@@ -38,7 +38,7 @@ export default function EditEmployee() {
 
     const editEmployee = () => {
         axios.patch(
-            `http://localhost:5000/api/employee/${location.state.employeeId}`,
+            process.env.REACT_APP_API_URL + `/api/employee/${location.state.employeeId}`,
             {
                 firstName,
                 lastName,

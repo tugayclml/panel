@@ -19,7 +19,7 @@ export default function Color() {
 
   const getColors = () => {
     axios.get(
-      'http://localhost:5000/api/color'
+      process.env.REACT_APP_API_URL + '/api/color'
     ).then(response => {
       if (response.status === 200) setColors(response.data)
     }).catch(error => {

@@ -21,7 +21,7 @@ export default function AddPrice() {
 
     const getAgents = () => {
         axios.get(
-            'http://localhost:5000/api/agent'
+            process.env.REACT_APP_API_URL + '/api/agent'
         ).then(response => {
             if (response.status === 200) {
                 const agents = []
@@ -37,7 +37,7 @@ export default function AddPrice() {
 
     const getCars = () => {
         axios.get(
-            'http://localhost:5000/api/car'
+            process.env.REACT_APP_API_URL + '/api/car'
         ).then(response => {
             if (response.status === 200) {
                 const cars = []
@@ -53,7 +53,7 @@ export default function AddPrice() {
 
     const getSections = () => {
         axios.get(
-            'http://localhost:5000/api/section'
+            process.env.REACT_APP_API_URL + '/api/section'
         ).then(response => {
             if (response.status === 200) {
                 const sections = []
@@ -69,7 +69,7 @@ export default function AddPrice() {
 
     const createPrice = () => {
         axios.post(
-            'http://localhost:5000/api/price',
+            process.env.REACT_APP_API_URL + '/api/price',
             {
                 carId: car.value,
                 fromId: from.value,

@@ -28,7 +28,7 @@ export default function ReservationEditModal(props) {
     getCars()
 
     axios.get(
-      `http://localhost:5000/api/reservation/${props.id}`
+      process.env.REACT_APP_API_URL + `/api/reservation/${props.id}`
     ).then(response => {
       if (response.status === 200) {
         setFrom({ value: response.data.from.id, label: response.data.from.sectionName })
@@ -47,7 +47,7 @@ export default function ReservationEditModal(props) {
 
   const edit = () => {
     axios.patch(
-      `http://localhost:5000/api/reservation/${props.id}`,
+      process.env.REACT_APP_API_URL + `/api/reservation/${props.id}`,
       {
         from: from.value,
         to: to.value,
@@ -68,7 +68,7 @@ export default function ReservationEditModal(props) {
 
   const getSections = () => {
     axios.get(
-      'http://localhost:5000/api/section'
+      process.env.REACT_APP_API_URL + '/api/section'
     ).then(response => {
       if (response.status === 200) {
         const sections = []
@@ -84,7 +84,7 @@ export default function ReservationEditModal(props) {
 
   const getCars = () => {
     axios.get(
-      'http://localhost:5000/api/car'
+      process.env.REACT_APP_API_URL + '/api/car'
     ).then(response => {
       if (response.status === 200) {
         const cars = []

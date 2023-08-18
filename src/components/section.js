@@ -20,7 +20,7 @@ export default function Sections() {
 
   const getSections = () => {
     axios.get(
-      'http://localhost:5000/api/section'
+      process.env.REACT_APP_API_URL + '/api/section'
     ).then(response => {
       if (response.data && response.status === 200) {
         setSections([])

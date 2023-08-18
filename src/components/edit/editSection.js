@@ -26,7 +26,7 @@ export default function EditSection() {
         setCityOptions(cityOptions)
 
         axios.get(
-            `http://localhost:5000/api/section/${location.state.sectionId}`
+            process.env.REACT_APP_API_URL + `/api/section/${location.state.sectionId}`
         ).then(response => {
             if (response.status === 200) {
                 setSectionName(response.data.sectionName)
@@ -63,7 +63,7 @@ export default function EditSection() {
 
     const editSection = () => {
         axios.patch(
-            `http://localhost:5000/api/section/${location.state.sectionId}`,
+            process.env.REACT_APP_API_URL + `/api/section/${location.state.sectionId}`,
             {
                 sectionName,
                 city,

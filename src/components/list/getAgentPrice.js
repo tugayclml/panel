@@ -14,7 +14,7 @@ export default function GetAgentPrice() {
 
     const getAgent = () => {
         axios.get(
-            `http://localhost:5000/api/agent/${location.state.agentId}`
+            process.env.REACT_APP_API_URL + `/api/agent/${location.state.agentId}`
         ).then(response => {
             if (response.status === 200) {
                 const prices = []

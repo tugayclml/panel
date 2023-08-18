@@ -26,7 +26,7 @@ export default function AddCar() {
 
     const getEmployees = () => {
         axios.get(
-            'http://localhost:5000/api/employee'
+            process.env.REACT_APP_API_URL + '/api/employee'
         ).then(response => {
             setEmployees(response.data)
         })
@@ -59,7 +59,7 @@ export default function AddCar() {
         }
 
         axios.post(
-            'http://localhost:5000/api/car',
+            process.env.REACT_APP_API_URL + '/api/car',
             {
                 name,
                 model,

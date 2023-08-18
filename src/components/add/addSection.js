@@ -26,7 +26,7 @@ export default function AddSection() {
 
     const createSection = () => {
         axios.post(
-            'http://localhost:5000/api/section',
+            process.env.REACT_APP_API_URL + '/api/section',
             {
                 sectionName,
                 city,

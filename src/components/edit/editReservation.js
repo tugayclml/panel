@@ -53,7 +53,7 @@ export default function Reservation() {
         getAgents()
 
         axios.get(
-            `http://localhost:5000/api/reservation/${location.state.reservationId}`
+            process.env.REACT_APP_API_URL + `/api/reservation/${location.state.reservationId}`
         ).then(response => {
             if (response.status === 200) {
                 setReservationAgent({ value: response.data.agent.id, label: response.data.agent.name })
@@ -83,7 +83,7 @@ export default function Reservation() {
 
     const edit = () => {
         axios.patch(
-            `http://localhost:5000/api/reservation/${location.state.reservationId}`,
+            process.env.REACT_APP_API_URL + `/api/reservation/${location.state.reservationId}`,
             {
                 from: from.value,
                 to: to.value,
@@ -114,7 +114,7 @@ export default function Reservation() {
 
     const getSections = () => {
         axios.get(
-            'http://localhost:5000/api/section'
+            process.env.REACT_APP_API_URL + '/api/section'
         ).then(response => {
             if (response.status === 200) {
                 const sections = []
@@ -130,7 +130,7 @@ export default function Reservation() {
 
     const getCars = () => {
         axios.get(
-            'http://localhost:5000/api/car'
+            process.env.REACT_APP_API_URL + '/api/car'
         ).then(response => {
             if (response.status === 200) {
                 const cars = []
@@ -146,7 +146,7 @@ export default function Reservation() {
 
     const getAgents = () => {
         axios.get(
-            'http://localhost:5000/api/agent'
+            process.env.REACT_APP_API_URL + '/api/agent'
         ).then(response => {
             for (const agent of response.data) {
                 agents.push({ value: agent.id, label: agent.name })

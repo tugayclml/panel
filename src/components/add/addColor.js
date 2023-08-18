@@ -10,7 +10,7 @@ export default function AddColor() {
 
     const createColor = () => {
         axios.post(
-            'http://localhost:5000/api/color',
+            process.env.REACT_APP_API_URL + '/api/color',
             {
                 name,
                 colorCode,

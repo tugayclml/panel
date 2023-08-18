@@ -24,7 +24,7 @@ export default function AgentReservation() {
 
   const getAcceptedReservations = () => {
     axios.get(
-      'http://localhost:5000/api/agent/reservations/Onaylandı',
+      process.env.REACT_APP_API_URL + '/api/agent/reservations/Onaylandı',
       {
         headers: {
           'Authorization': token
@@ -41,7 +41,7 @@ export default function AgentReservation() {
 
   const getWaitingReservations = () => {
     axios.get(
-      'http://localhost:5000/api/agent/reservations/Beklemede',
+      process.env.REACT_APP_API_URL + '/api/agent/reservations/Beklemede',
       {
         headers: {
           'Authorization': token

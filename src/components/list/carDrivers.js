@@ -18,7 +18,7 @@ export default function CarDrivers() {
     }, [])
 
     const getCarDrivers = () => {
-        axios.get(`http://localhost:5000/api/car/${location.state.carId}`)
+        axios.get(process.env.REACT_APP_API_URL + `/api/car/${location.state.carId}`)
             .then(response => {
                 setDrivers(response.data.employees)
             }).catch(error => {

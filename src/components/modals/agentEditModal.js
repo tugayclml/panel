@@ -11,7 +11,7 @@ export default function AgentEditModal(props) {
 
   useEffect(() => {
     axios.get(
-      `http://localhost:5000/api/agent/${props.id}`
+      process.env.REACT_APP_API_URL + `/api/agent/${props.id}`
     ).then(response => {
       if (response.status === 200) {
         setName(response.data.name)
@@ -25,7 +25,7 @@ export default function AgentEditModal(props) {
 
   const edit = (id) => {
     axios.patch(
-      `http://localhost:5000/api/agent/${id}`,
+      process.env.REACT_APP_API_URL + `/api/agent/${id}`,
       {
         name,
         password,

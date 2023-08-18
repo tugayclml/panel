@@ -15,7 +15,7 @@ export default function EmployeeEditModal(props) {
 
     useEffect(() => {
         axios.get(
-            `http://localhost:5000/api/employee/${props.id}`
+            process.env.REACT_APP_API_URL + `/api/employee/${props.id}`
         ).then(response => {
             if (response.status === 200) {
                 setFirstName(response.data.firstName)
@@ -33,7 +33,7 @@ export default function EmployeeEditModal(props) {
 
     const edit = () => {
         axios.patch(
-            `http://localhost:5000/api/employee/${props.id}`,
+            process.env.REACT_APP_API_URL + `/api/employee/${props.id}`,
             {
                 firstName,
                 lastName,

@@ -18,7 +18,7 @@ export default function EditPrice() {
 
     const getAgents = useCallback(() => {
         axios.get(
-            'http://localhost:5000/api/agent'
+            process.env.REACT_APP_API_URL + '/api/agent'
         ).then(response => {
             if (response.status === 200) {
                 const agents = []
@@ -34,7 +34,7 @@ export default function EditPrice() {
 
     const getCars = useCallback(() => {
         axios.get(
-            'http://localhost:5000/api/car'
+            process.env.REACT_APP_API_URL + '/api/car'
         ).then(response => {
             if (response.status === 200) {
                 const cars = []
@@ -50,7 +50,7 @@ export default function EditPrice() {
 
     const getSections = useCallback(() => {
         axios.get(
-            'http://localhost:5000/api/section'
+            process.env.REACT_APP_API_URL + '/api/section'
         ).then(response => {
             if (response.status === 200) {
                 const sections = []
@@ -66,7 +66,7 @@ export default function EditPrice() {
 
     const getPrice = useCallback(() => {
         axios.get(
-            `http://localhost:5000/api/price/${location.state.priceId}`
+            process.env.REACT_APP_API_URL + `/api/price/${location.state.priceId}`
         ).then(response => {
             if (response.status === 200) {
                 const price = response.data
@@ -92,7 +92,7 @@ export default function EditPrice() {
 
     const editPrice = () => {
         axios.patch(
-            `http://localhost:5000/api/price/${location.state.priceId}`,
+            process.env.REACT_APP_API_URL + `/api/price/${location.state.priceId}`,
             {
                 fromId: from.value,
                 toId: to.value,

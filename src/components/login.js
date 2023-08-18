@@ -16,7 +16,7 @@ export default function Login() {
 
   const login = () => {
     axios.post(
-      'http://localhost:5000/api/login',
+      process.env.REACT_APP_API_URL + '/api/login',
       { username, password }
     ).then(response => {
       if (response.data.accessToken) {

@@ -11,7 +11,7 @@ export default function AddAgent() {
 
   const createAgent = () => {
     axios.post(
-      'http://localhost:5000/api/agent',
+      process.env.REACT_APP_API_URL + '/api/agent',
       {
         name,
         password,

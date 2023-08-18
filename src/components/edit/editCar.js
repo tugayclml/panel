@@ -25,7 +25,7 @@ export default function EditCar() {
 
     const getCar = useCallback(() => {
         axios.get(
-            `http://localhost:5000/api/car/${location.state.carId}`
+            process.env.REACT_APP_API_URL + `/api/car/${location.state.carId}`
         ).then(response => {
             if (response.status === 200) {
                 setName(response.data.name)
@@ -43,7 +43,7 @@ export default function EditCar() {
 
     const getEmployees = useCallback(() => {
         axios.get(
-            'http://localhost:5000/api/employee'
+            process.env.REACT_APP_API_URL + '/api/employee'
         ).then(response => {
             setEmployees(response.data)
         })
@@ -61,7 +61,7 @@ export default function EditCar() {
         }
 
         axios.patch(
-            `http://localhost:5000/api/car/${location.state.carId}`,
+            process.env.REACT_APP_API_URL + `/api/car/${location.state.carId}`,
             {
                 name,
                 model,

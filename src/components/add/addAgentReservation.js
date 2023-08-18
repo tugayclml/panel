@@ -31,7 +31,7 @@ export default function AddAgentReservation() {
 
     const createReservation = () => {
         axios.post(
-            'http://localhost:5000/api/reservation',
+            process.env.REACT_APP_API_URL + '/api/reservation',
             {
                 fromId: from.value,
                 toId: to.value,
@@ -61,7 +61,7 @@ export default function AddAgentReservation() {
 
     const getSections = () => {
         axios.get(
-            'http://localhost:5000/api/section'
+            process.env.REACT_APP_API_URL + '/api/section'
         ).then(response => {
             if (response.status === 200) {
                 const sections = []
@@ -77,7 +77,7 @@ export default function AddAgentReservation() {
 
     const getCars = () => {
         axios.get(
-            'http://localhost:5000/api/car'
+            process.env.REACT_APP_API_URL + '/api/car'
         ).then(response => {
             if (response.status === 200) {
                 const cars = []

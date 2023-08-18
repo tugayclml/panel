@@ -52,7 +52,7 @@ export default function Agent() {
 
   const getAgents = () => {
     axios.get(
-      'http://localhost:5000/api/agent/letter/A'
+      process.env.REACT_APP_API_URL + '/api/agent/letter/A'
     ).then(response => {
       if (response.status === 200) {
         setAgents(response.data)
@@ -74,7 +74,7 @@ export default function Agent() {
   const clickhedLetter = (letter) => {
     setActive(letter)
     axios.get(
-      `http://localhost:5000/api/agent/letter/${letter}`
+      process.env.REACT_APP_API_URL + `/api/agent/letter/${letter}`
     ).then(response => {
       setAgents(response.data)
     }).catch(error => {

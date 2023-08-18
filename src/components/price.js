@@ -16,7 +16,7 @@ export default function Price() {
 
     const getPrices = useCallback(() => {
         axios.get(
-            'http://localhost:5000/api/price'
+            process.env.REACT_APP_API_URL + '/api/price'
         ).then(response => {
             console.log(response);
             if (response.status === 200) {

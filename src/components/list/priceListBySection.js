@@ -17,7 +17,7 @@ export default function PriceListBySection() {
 
     const getPrice = () => {
         axios.get(
-            `http://localhost:5000/api/price/list?from=${location.state.from.id}&to=${location.state.to.id}`
+            process.env.REACT_APP_API_URL + `/api/price/list?from=${location.state.from.id}&to=${location.state.to.id}`
         ).then(response => {
             console.log(response);
             if (response.status === 200) {

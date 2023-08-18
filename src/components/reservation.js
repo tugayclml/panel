@@ -20,7 +20,7 @@ export default function Reservation() {
 
   const approveReservation = (reservationId) => {
     axios.patch(
-      `http://localhost:5000/api/reservation/${reservationId}/approve`,
+      process.env.REACT_APP_API_URL + `/api/reservation/${reservationId}/approve`,
     ).then(response => {
       if (response.status === 200) {
         getAcceptedReservations()
@@ -33,7 +33,7 @@ export default function Reservation() {
 
   const declineReservation = (reservationId) => {
     axios.patch(
-      `http://localhost:5000/api/reservation/${reservationId}/decline`,
+      process.env.REACT_APP_API_URL + `/api/reservation/${reservationId}/decline`,
     ).then(response => {
       if (response.status === 200) {
         getAcceptedReservations()
@@ -46,7 +46,7 @@ export default function Reservation() {
 
   const getAcceptedReservations = () => {
     axios.get(
-      'http://localhost:5000/api/reservation/status/Onaylandı'
+      process.env.REACT_APP_API_URL + '/api/reservation/status/Onaylandı'
     ).then(response => {
       if (response.status === 200) {
         setAcceptedReservations(response.data);
@@ -58,7 +58,7 @@ export default function Reservation() {
   
   const getWaitingReservations = () => {
     axios.get(
-      'http://localhost:5000/api/reservation/status/Beklemede'
+      process.env.REACT_APP_API_URL + '/api/reservation/status/Beklemede'
     ).then(response => {
       if (response.status === 200) {
         setWaitingReservations(response.data);

@@ -23,7 +23,7 @@ export default function SectionEditModal(props) {
     setCityOptions(cityOptions)
 
     axios.get(
-      `http://localhost:5000/api/section/${props.id}`
+      process.env.REACT_APP_API_URL + `/api/section/${props.id}`
     ).then(response => {
       if (response.status === 200) {
         setSectionName(response.data.sectionName)
@@ -60,7 +60,7 @@ export default function SectionEditModal(props) {
 
   const edit = () => {
     axios.patch(
-      `http://localhost:5000/api/section/${props.id}`,
+      process.env.REACT_APP_API_URL + `/api/section/${props.id}`,
       {
         sectionName,
         city,

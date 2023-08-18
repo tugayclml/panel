@@ -15,7 +15,7 @@ export default function CarEditModal(props) {
 
   useEffect(() => {
     axios.get(
-      `http://localhost:5000/api/car/${props.id}`
+      process.env.REACT_APP_API_URL + `/api/car/${props.id}`
     ).then(response => {
       if (response.status === 200) {
         setName(response.data.name)
@@ -33,7 +33,7 @@ export default function CarEditModal(props) {
 
   const edit = () => {
     axios.patch(
-      `http://localhost:5000/api/car/${props.id}`,
+      process.env.REACT_APP_API_URL + `/api/car/${props.id}`,
       {
         name,
         model,
